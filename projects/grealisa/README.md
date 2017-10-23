@@ -1,2 +1,3 @@
-This is my assignment 2 submission.
-Date: October 8, 2017
+This is my assignment 3 submission.
+run make unittestresults.out
+Date: October 22, 2017
