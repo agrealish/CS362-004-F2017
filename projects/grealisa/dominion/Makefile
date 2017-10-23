@@ -29,11 +29,69 @@ runtests: testDrawCard
 	gcov dominion.c >> unittestresult.out
 	cat dominion.c.gcov >> unittestresult.out
 
+unit1: unittest1.c dominion.o rngs.o
+	echo "unittest1.c:" >> unittestresults.out
+	gcc -o unittest1 dominion.o rngs.o unittest1.c $(CFLAGS)
+	./unittest1 >> unittestresults.out
+	gcov -b dominion.c >> unittestresults.out
 
+unit2: unittest2.c dominion.o rngs.o
+	echo "unittest2.c:" >> unittestresults.out
+	gcc -o unittest2 dominion.o rngs.o unittest2.c $(CFLAGS)
+	./unittest2 >> unittestresults.out
+	gcov -b dominion.c >> unittestresults.out
+
+unit3: unittest3.c dominion.o rngs.o
+	echo "unittest3.c:" >> unittestresults.out
+	gcc -o unittest3 dominion.o rngs.o unittest3.c $(CFLAGS)
+	./unittest3 >> unittestresults.out
+	gcov -b dominion.c >> unittestresults.out
+
+unit4: unittest4.c dominion.o rngs.o
+	echo "unittest4.c:" >> unittestresults.out
+	gcc -o unittest4 dominion.o rngs.o unittest4.c $(CFLAGS)
+	./unittest4 >> unittestresults.out
+	gcov -b dominion.c >> unittestresults.out
+
+card1: cardtest1.c dominion.o rngs.o
+	echo "cardtest1.c:" >> unittestresults.out
+	gcc -o cardtest1 dominion.o rngs.o cardtest1.c $(CFLAGS)
+	./cardtest1 >> unittestresults.out
+	gcov -b dominion.c >> unittestresults.out
+
+card2: cardtest2.c dominion.o rngs.o
+	echo "cardtest2.c:" >> unittestresults.out
+	gcc -o cardtest2 dominion.o rngs.o cardtest2.c $(CFLAGS)
+	./cardtest2 >> unittestresults.out
+	gcov -b dominion.c >> unittestresults.out
+
+card3: cardtest3.c dominion.o rngs.o
+	echo "cardtest3.c:" >> unittestresults.out
+	gcc -o cardtest3 dominion.o rngs.o cardtest3.c $(CFLAGS)
+	./cardtest3 >> unittestresults.out
+	gcov -b dominion.c >> unittestresults.out
+
+card4: cardtest4.c dominion.o rngs.o
+	echo "cardtest4.c:" >> unittestresults.out
+	gcc -o cardtest4 dominion.o rngs.o cardtest4.c $(CFLAGS)
+	./cardtest4 >> unittestresults.out
+	gcov -b dominion.c >> unittestresults.out
+
+unittestresults.out:
+	echo "All Assignment 3 test coverage:" >> unittestresults.out
+	make unit1
+	make unit2
+	make unit3
+	make unit4
+	make card1
+	make card2
+	make card3
+	make card4
+	
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 
 all: playdom player testDrawCard testBuyCard badTestDrawCard
 
 clean:
-	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so *.out testDrawCard testDrawCard.exe
+	rm -f *.o playdom.exe playdom player player.exe  *.gcov *.gcda *.gcno *.so testDrawCard testDrawCard.exe *.out unittest1 unittest2 unittest3 unittest4 cardtest1 cardtest2 cardtest3 cardtest4
