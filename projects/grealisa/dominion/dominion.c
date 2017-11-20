@@ -674,8 +674,11 @@ int card_Adventurer(int currentPlayer, int temphand[], struct gameState *state)
 int card_Smithy(int currentPlayer, int handPos, struct gameState *state)
 {
 // +3 Cards
+
+      // for Assignment 5, fix code from errors found in my own tests
+      // and my teammates tests.
       int i;
-      for (i = 0; i <= 3; i++)
+      for (i = 0; i < 3; i++)
 	{
 	  drawCard(currentPlayer, state);
 	}
