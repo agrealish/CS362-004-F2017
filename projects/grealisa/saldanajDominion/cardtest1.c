@@ -21,12 +21,12 @@ int main() {
 	int bonus = 0;
 	int curHandCount = state.handCount[player];
 
-	printf("CurHandCount= %d\n", curHandCount);
+	printf("curHandCount= %d", curHandCount);
 	printf("Test for Adventurer Card:\n");
 
 	cardEffect(adventurer, 0, 0, 0, &state, 0, &bonus);
+	printf("afterHandCount= %d", state.handCount[player]);
 
-	printf("afterHandCount = %d\n", state.handCount[player]);
 	// check the handcount
 	if(state.handCount[player] == curHandCount + 2) {
 		printf("Adventurer: PASS hand count increased\n");

@@ -57,7 +57,7 @@ int main() {
 		int curDiscardCount = state.discardCount[player];
 		int lastCard = state.hand[player][state.handCount[player]-1];
 
-		printf("curHandCount = %d\n", curHandCount);
+		printf("curHandcount = %d\n", curHandCount);
 		// and finally, call the function and run the tests
 		// note we do not use handPos in adventurer, so that was
 		// not randomized
@@ -72,7 +72,7 @@ int main() {
 			printf("number of players = %d, current player = %d, game seed = %d\n", numPlayers, player, gameSeed);
 		}
 
-		printf("afterHandCount = %d\n", state.handCount[player]);
+		printf("afterhandCount = %d\n", state.handCount[player]);
 		if(state.handCount[player] != curHandCount + 2) {
 			printf("Adventurer: FAIL hand count did not increase appropriately\n");
 			printf("Test # %d, deckCount = %d, discardCount = %d, handCount = %d\n", testCount, curDeckCount, curDiscardCount, curHandCount);

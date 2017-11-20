@@ -1,0 +1,45 @@
+Ashley Grealish
+CS 362: Assignment 5
+November 19, 2017
+
+BUG REPORT FOR SALDANAJ DOMINION CODE
+
+Bug ID: AG101
+
+Summary: adventureCard() is returning a hand count that is double the expected increase of 2.
+
+Description: The function adventureCard() is returning a hand count value that has typically increased by 4 rather than the expected 2.  The exception is when the shuffle() function has been called (when the deck count is 0), which in one of my tests returned an initial hand count of 363 and a hand count of 7 after the cardEffect() function was called.  So the shuffle() function unpredictable changes the hand count output.
+
+Code that produces the hand count increase of 4: 
+	initial values of: deckCount = 372, discardCount = 355, handCount = 151, number of players = 4, current player = 3, game seed = 1653944228.
+	Call cardEffect().  HandCount should increase to 155.
+
+Code that produces the shuffle handCount change:
+	initial values of: deckCount = 0, discardCount = 213, handCount = 363, number of players = 4, current player = 0, game seed = 819037691.
+	Call cardEffect().  HandCount should decrease to 7.
+
+Test Conditions: this was run on the Oregon State University Flip server using gcc.
+
+Possible Cause: if/else statement within the cardAdventurer() function is missing the check for the silver treasurer card.
+
+Estimated Severity: Medium.  This will effect the outcome of the game when the Adventurer card is played.
+
+Estimated Priority: Since the cardAdventurer() function will impact the outcome of the game when the Adventurer card is played, this should be fixed in the next software update.
+
+**************************
+
+
+Bug ID: AG102
+
+Summary: smithyCard() is returning a hand count that is less than the expected hand count increase of 2 (3 cards drawn and 1 card discarded).
+
+Description: The smithyCard() function is returning a hand count that has increased by 1 rather than the expected increase of 2 (3 cards drawn and 1 card discarded).  The expected outcome of playing a Smithy card is that the player draws three cards and discards one.  The lower than expected hand count affects game play in that the player does not have as many cards in their hand as they should after playing the Smithy card.
+
+Code that produces error:
+	initial values of: deckCount = 144, handCount = 76, number of players = 4, current player = 2, game seed = 1325397320
+
+Test Conditions: this was run on the Oregon State University Flip server using gcc.
+
+Estimated Severity: Medium.  This will effect the outcome of the game when the Smithy card is played.
+
+Estimated Priority: Since the cardSmithy() function will impact the outcome of the game when the Smithy card is played, this should be fixed in the next software update.
